@@ -1,37 +1,27 @@
-# curriculum-databases-projects-template
+# VET CLINIC DATABASE
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
-
+> This project contains a relational database to create the data structure for a vet clinic. It is still being worked on. However, at the end of the project, a complete database with data about `animals`, `animal owners`, `clinic employees`, and `visits` would have been created.
 
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
 
-- Use [schema.sql](./schema.sql) to create all tables.
-- Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
+- Check [schema.sql](./schema.sql) to see data used to create all tables.
+- Check [data.sql](./data.sql) to see data used to populate tables with clinic information.
+- Check [queries.sql](./queries.sql) for queries that were made to the database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
 
+# 👤 Author
 
-## Authors
+GitHub: [@dammyShittu](https://github.com/DammyShittu/)
 
-👤 **Author1**
+Twitter: [@aded_shittu](https://twitter.com/aded_shittu/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
+LinkedIn: [Adedamola Shittu](https://www.linkedin.com/in/adedamolashittu/)
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/DammyShittu/Vet-Clinic-Database/issues).
 
 ## Show your support
 
@@ -39,10 +29,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+Many thanks to Microverse for providing the tamplate that was used for this project.
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](LICENSE) licensed.
