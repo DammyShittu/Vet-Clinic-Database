@@ -37,7 +37,7 @@ SELECT * FROM animals;
 -- Two
 BEGIN;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
-UPDATE animals SET species = 'pokemon' WHERE NOT name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE species IS NULL;
 COMMIT;
 SELECT * FROM animals;
 
@@ -60,7 +60,7 @@ COMMIT;
 SELECT COUNT(*) FROM animals;
 
 -- How many animals have never tried to escape?
-SELECT COUNT(escape_attempts) FROM animals GROUP BY escape_attempts HAVING escape_attempts = 0;
+SELECT COUNT(escape_attempts) FROM animals WHERE escape_attempts = 0;
 
 -- What is the average weight of animals?
 SELECT AVG(weight_kg) FROM animals;
