@@ -1,12 +1,10 @@
 /*Queries that provide answers to the questions from all projects.*/
 
 -- Find all animals whose name ends in "mon".
-SELECT * FROM animals WHERE name LIKE '%mon%';
+SELECT * FROM animals WHERE name LIKE '%mon';
 
 -- List the name of all animals born between 2016 and 2019.
-SELECT name FROM
-   (SELECT *, EXTRACT(YEAR FROM date_of_birth) AS year FROM animals)
-   AS INNER_TABLE WHERE year BETWEEN 2016 and 2019;
+SELECT name FROM animals WHERE EXTRACT(year FROM date_of_birth) BETWEEN 2016 AND 2019;
 
 -- List the name of all animals that are neutered and have less than 3 escape attempts.
 SELECT name FROM animals WHERE neutered = true AND escape_attempts < 3;
@@ -25,3 +23,53 @@ SELECT * FROM animals WHERE NOT name = 'Gabumon';
 
 -- Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
 SELECT * FROM animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
+
+
+-- Transaction queries
+
+-- One
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+SELECT * FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
+
+-- Two
+BEGIN;
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+UPDATE animals SET species = 'pokemon' WHERE NOT name LIKE '%mon';
+COMMIT;
+SELECT * FROM animals;
+
+-- Three
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+SELECT * FROM animals;
+
+-- Four
+BEGIN;
+DELETE FROM animals WHERE date_of_birth > '2022-01-01';
+SAVEPOINT point1;
+UPDATE animals SET weight_kg = weight_kg * -1;
+ROLLBACK TO point1;
+COMMIT;
+
+
+-- How many animals are there?
+SELECT COUNT(*) FROM animals;
+
+-- How many animals have never tried to escape?
+SELECT COUNT(escape_attempts) FROM animals GROUP BY escape_attempts HAVING escape_attempts = 0;
+
+-- What is the average weight of animals?
+SELECT AVG(weight_kg) FROM animals;
+
+-- Who escapes the most, neutered or not neutered animals?
+SELECT neutered, SUM(escape_attempts) FROM animals GROUP BY neutered;
+
+-- What is the minimum and maximum weight of each type of animal?
+SELECT weight_kg, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY weight_kg;
+
+-- What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+SELECT escape_attempts, AVG(escape_attempts) FROM animals WHERE EXTRACT(year FROM date_of_birth) BETWEEN 1990 AND 2000 GROUP BY escape_attempts;
