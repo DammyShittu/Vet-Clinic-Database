@@ -30,7 +30,7 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) 
 -- Her name is Blossom. She was born on Oct 13th, 1998, and currently weighs 17kg. She is neutered and she has tried to escape 3 times.
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg) VALUES ('Blossom', '1998-10-13', 3, true, 17.00);
 
--- Insert Owners Names and Ages Into OWners Table
+-- Insert Owners Names and Ages Into Owners Table
 INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34), ('Jennifer Orwell', 19), ('Bob', 45), ('Melody Pond', 77), ('Dean Winchester', 14), ('Jodie Whittaker', 38);
 
 -- Insert Species Names Into Species Table.
