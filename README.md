@@ -2,6 +2,8 @@
 
 > This project contains a relational database to create the data structure for a vet clinic. It is still being worked on. However, at the end of the project, a complete database with data about `animals`, `animal owners`, `clinic employees`, and `visits` would have been created.
 
+![](./db-diagram.png)
+
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
